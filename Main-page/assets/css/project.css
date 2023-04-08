@@ -1,0 +1,71 @@
+.project_card_create{
+  min-height: 550px;
+  min-width: 350px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  font-size: 42px;
+}
+
+.project_card_create:hover{
+  background-color: rgba(0, 255, 255, 0.171);
+}
+
+
+.project_card{
+  min-height: 550px;
+  min-width: 350px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.project_card:hover{
+    background-color: rgba(0, 255, 255, 0.171);
+}
+
+
+.project_number{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    left: 85%;
+    background-color: aqua;
+    position: absolute;
+    border-radius: 50px;
+}
+
+.project_image{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.75);
+}
+
+.project_owner img{
+    background-color: aqua;
+    border-radius: 50%;
+    width: 25%;
+}
+
+.project_owner{
+    position: absolute;
+    left: 45%;
+    top: 200px;
+}
+
+.project_owner_name{
+    position: absolute;
+    font-size: 22px;
+}
+.collabs img{
+    background-color: aqua;
+    border-radius: 50%;
+    margin-top: 100px;
+    width: 10%;
+}
+
+.description{
+    margin-top: 100px;
+}

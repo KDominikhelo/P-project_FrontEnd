@@ -72,7 +72,7 @@ function formSubmit(){
     })
     .then(data => {
 
-            console.log(data)
+            alert("A project tlétrehozása sikeres");
         
     })
     .catch(e => console.log("error::", e));

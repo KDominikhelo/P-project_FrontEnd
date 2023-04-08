@@ -33,9 +33,6 @@ logForm.addEventListener("submit", (e) => {
         return response.json();
     })
     .then(data => {
-
-        console.log(data)
-
         if (data.user.email == null) {
             alert("A megadott email és jelszó hibás vagy nem létezik!");
         }

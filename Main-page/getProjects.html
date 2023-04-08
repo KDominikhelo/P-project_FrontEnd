@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/project.css">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -144,58 +145,61 @@
 
         <div class="container">
             <div class="row">
-         <!--   
-                <div class="col-md-4 col-sm-12">
 
-
-                
-                    <div class="card">
-                        <div class="card-header">
-                            1. Project
-                        </div>
-                        <div class="card-body text-center">
-
-                            <img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3 w-25" alt="">
-                            <p>Project neve</p>
-                           
-                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
-                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
-                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
-                            
-
-
-                            <hr class="mt-5">
-                            <br>
-                          
-                            
-                            <a href="./main_page.html" type="button" class="btn btn-light position-absolute bottom-0 start-50 translate-middle-x m-1">Kiválaszt</a>
-                            
-
-                        </div>
-                    </div>
+                <div id="projects">
 
                 </div>
 
-                -->
-
-                <div class="col-md-12 col-sm-12">
-
-                    <div class="card">
-                        <div class="card-header">
-                          Hozz létre egy projectet.
+                <div class="col-md-4">
+                    <div class="project_card card text-center">
+                    <div class="container">
+                     <div class="row">
+                        <div class="col-12">
+                        <div class="project_number text-center mt-3"><p>1.</p></div>
+                        <img class="project_image mt-4" src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?crop=faces%2Cedges&cs=tinysrgb&fit=crop&fm=jpg&ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjgwODgwNjIx&ixlib=rb-4.0.3&q=60&w=1200&auto=format&h=630&mark-w=64&mark-align=top%2Cleft&mark-pad=50&blend-mode=normal&blend-alpha=10&blend-w=1&mark=https%3A%2F%2Fimages.unsplash.com%2Fopengraph%2Flogo.png&blend=000000" alt="">
+                        <div class="project_owner">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">    
+                            <p class="project_owner_name">@Felhasználónév</p> 
                         </div>
-                        <div class="card-body text-center">
-
-                            <a data-bs-toggle="modal" data-bs-target="#projectCreate" type="button" class="btn btn-light position-absolute bottom-0 start-50 translate-middle-x m-1">Létrehozás</a>
-                            
-
                         </div>
                     </div>
-
+                    <div class="row">
+                        <div class="col-6 ">
+                            <p class="description">Fülszöveg/Project rövid leírása...</p>
+                        </div>
+                        <div class="col-6">
+                            <div class="collabs">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                            </div>
+                            <p>@02-user és további 2 ember társaságában.</p>
+                        </div>  
+                    </div>
+                    <div class="row mt-3 mb-3">
+                        <div class="col-6 ">
+                            YYYY/MM/DD
+                        </div>
+                        <div class="col-6 ">
+                            <div class="btn btn-info">Project megnyitása</div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
                 </div>
 
-  
+             <div class="col-md-4" data-bs-toggle="modal" data-bs-target="#projectCreate">
+                <div class="project_card_create card text-center ">
+                    <p>+</p>
+                </div>
+             </div>
 
+
+
+
+
+
+                </div>
 
             </div>
 
@@ -255,7 +259,7 @@
 
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
-    <script src="./assets/js/getProjectsController.js"></script>
+    <script src="./assets/js/projects/getProjectsController.js"></script>
     <script src="./assets/js/userController.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"

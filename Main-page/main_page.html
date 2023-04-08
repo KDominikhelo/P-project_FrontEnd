@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    
+    <title>P-project</title>
+</head>
+
+<body>
+  
+    <nav class="sidebar close d-none d-lg-block">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">P-project</span>
+                    <span class="profession">&copy; 2023 P-Project</span>
+                    <span class="profession" id="userField" ></span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+              
+
+                <ul class="menu-links search-box">
+
+                    <li class="search-box toggle2">
+                        <i class='bx bx-search icon'></i>
+                        <span class="text nav-text "><input type="text" placeholder="Search..."></span>
+                        
+                    </li>
+    
+
+                    <li class="">
+                        <a href="./getProjects.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Projects</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./calendar.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Calendar</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./teams.html">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Teams</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./profile.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a id="logOutBtn">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="d-lg-none navbar navbar-expand-lg felso-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                P-project
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./getProjects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./calendar.html">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-5" href="./teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-5 logOutBtn" >Kijelentkezés</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-outline-secondary shadow-sm d-sm d-block">Kép</a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="home">
+
+
+        <div class="text">Projects</div>   
+
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div class="col-md-4 col-sm-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            Teendő
+                        </div>
+                        <div class="card-body column">
+
+                            <div class="card" draggable="true">
+                                <div class="card-header">P-project</div>
+                                <div class="card-body" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <p>rövid leírás...</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            Folyamatban
+                        </div>
+                        <div class="card-body column">
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-4 col-sm-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            Kész
+                        </div>
+                        <div class="card-body column">
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">P-project</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <h2>P-project</h2>
+                        <div class="col-md-12">
+
+                            <p>Ez a leírása ennek a projectnek.....</p>
+
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here"
+                                    id="floatingTextarea"></textarea>
+                                <label for="floatingTextarea">Leírás hozzáadása..</label>
+                            </div>
+                            <button class="btn btn-secondary mt-2">Mentés</button>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control dark-input" id="comment" placeholder="Comment">
+                                <label for="comment">Comment</label>
+                            </div>
+                        </div>
+                        <div class="col md-4 text-center">
+                            
+                            <div class="list-group dark-input">
+                                <button type="button" class="list-group-item list-group-item-action" aria-current="true">Kártya beállítás 1</button>
+                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás 2</button>
+                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás 3</button>
+                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás 4</button>
+                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás 5</button>
+                              </div>
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Landing-page/assets/js/logoutScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="./assets/js/userController.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

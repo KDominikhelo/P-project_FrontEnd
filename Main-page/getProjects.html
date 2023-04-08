@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+ 
+    
+    <title>P-project</title>
+</head>
+
+<body class="puff-in-center">
+   
+    <nav class="sidebar close d-none d-lg-block">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!--<img src="logo.png" alt="">-->
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">P-project</span>
+                    <span class="profession">&copy; 2023 P-Project</span>
+                    <span class="profession" id="userField" ></span>
+                </div>
+            </div>
+
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+
+              
+
+                <ul class="menu-links search-box">
+
+                    <li class="search-box toggle2">
+                        <i class='bx bx-search icon'></i>
+                        <span class="text nav-text "><input type="text" placeholder="Search..."></span>
+                        
+                    </li>
+    
+
+
+                    <li class="">
+                        <a href="./getProjects.html">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Projects</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./calendar.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Calendar</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./teams.html">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Teams</span>
+                        </a>
+                    </li>
+
+                    <li class="">
+                        <a href="./profile.html">
+                            <i class='bx bx-pie-chart-alt icon'></i>
+                            <span class="text nav-text">Profile</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a class="logOutBtn">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                    <div class="sun-moon">
+                        <i class='bx bx-moon icon moon'></i>
+                        <i class='bx bx-sun icon sun'></i>
+                    </div>
+                    <span class="mode-text text">Dark mode</span>
+
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="d-lg-none navbar navbar-expand-lg felso-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                P-project
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./getProjects.html">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./calendar.html">Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-5" href="./teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link me-5 logOutBtn">Kijelentkezés</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-outline-secondary shadow-sm d-sm d-block">Kép</a>
+                    
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="home pt-5">
+
+        <div class="container">
+            <div class="row">
+         <!--   
+                <div class="col-md-4 col-sm-12">
+
+
+                
+                    <div class="card">
+                        <div class="card-header">
+                            1. Project
+                        </div>
+                        <div class="card-body text-center">
+
+                            <img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3 w-25" alt="">
+                            <p>Project neve</p>
+                           
+                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
+                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
+                                <div class="d-inline text-center"><img src="../Landing-page/assets/img/hero-img.svg" class="rounded-3" style="width: 10%;" alt=""></div>
+                            
+
+
+                            <hr class="mt-5">
+                            <br>
+                          
+                            
+                            <a href="./main_page.html" type="button" class="btn btn-light position-absolute bottom-0 start-50 translate-middle-x m-1">Kiválaszt</a>
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+
+                -->
+
+                <div class="col-md-12 col-sm-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                          Hozz létre egy projectet.
+                        </div>
+                        <div class="card-body text-center">
+
+                            <a data-bs-toggle="modal" data-bs-target="#projectCreate" type="button" class="btn btn-light position-absolute bottom-0 start-50 translate-middle-x m-1">Létrehozás</a>
+                            
+
+                        </div>
+                    </div>
+
+                </div>
+
+  
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="modal fade" id="projectCreate" tabindex="-1" aria-labelledby="projectCreate" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="projectCreate">Project létrehozás</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+              <form id="createProjectForm" name="createProjectForm">
+                <div class="mb-3">
+
+                  <label for="projectName" class="form-label">Project neve</label>
+                  <input type="text" class="form-control" id="projectName" name="setProjectName" required>
+                
+                </div>
+
+                <div class="mb-3">
+                  <label for="projectDescription" class="form-label" required>Project leírása</label>
+                  <textarea type="text" name="setprojectDescription" class="form-control" id="projectDescription" cols="30" rows="10" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="projectStartDate" class="form-label" required>Kezdési dátum</label>
+                    <input type="datetime-local" class="form-control"  id="projectStartDate" name="projectStartDate" aria-describedby="projectStartDate" required>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="projectPriority">Project prioritása:</label>
+                    <select id="projectPriority" name="setprojectPriority">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                </div>
+
+    
+    
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
+              <button type="submit" class="btn btn-success">Project létrehozása</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <script src="../Landing-page/assets/js/logoutScript.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>    
+    <script src="./assets/js/getProjectsController.js"></script>
+    <script src="./assets/js/userController.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+   
+
+</body>
+
+</html>

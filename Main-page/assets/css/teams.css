@@ -1,7 +1,7 @@
 .createNewTeam_card{
 
-    min-height: 450px;
-    max-width: 250px;
+    min-height: 520px;
+    max-width: 350px;
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -13,4 +13,56 @@
 
 .createNewTeam_card:hover{
     background-color: rgba(0, 255, 255, 0.171);
+  }
+
+
+
+  
+  .project_card{
+    min-height: 520px;
+    min-width: 350px;
+  }
+  
+  .project_card:hover{
+      background-color: rgba(0, 255, 255, 0.171);
+  }
+  
+  
+
+  
+  .project_image{
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.75);
+  }
+  
+  .project_owner img{
+      box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.75);
+      background-color: aqua;
+      border-radius: 50%;
+      width: 40%;
+  }
+  
+  .project_owner{
+      position: absolute;
+      left: 40%;
+      top: 150px;
+  }
+  
+  .project_owner_name{
+      font-size: 22px;
+  }
+  .collabs img{
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+      background-color: aqua;
+      border-radius: 50%;
+      width: 5%;
+  }
+  
+  .description{
+      margin-top: 100px;
+  }
+  
+  .p-button{
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
   }

@@ -291,7 +291,8 @@ body.dark .switch::before{
     position: absolute;
     top: 0;
     left: 250px;
-    height: max-content;
+    min-height: 100vh;
+    max-height: max-content;
     width: calc(100% - 250px);
     background-color: var(--body-color);
     transition: var(--tran-05);
@@ -305,7 +306,8 @@ body.dark .switch::before{
 
 .sidebar.close ~ .home{
     left: 78px;
-    height: max-content;
+    min-height: 100vh;
+    max-height: max-content;;
     width: calc(100% - 78px);
 }
 body.dark .home .text{
@@ -405,8 +407,6 @@ body.dark .sidebar li a:hover .text{
     position: relative;
     transition: var(--tran-05);
 }
-
-
 
 
 

@@ -4,10 +4,8 @@
 const createPorjectForm = document.getElementById("createProjectForm");
 
 createPorjectForm.addEventListener("submit", (event) => {
-    event.preventDefault();
 
     formSubmit();
-
 
 });
 
@@ -33,6 +31,7 @@ function formSubmit(){
     var priority = document.getElementById("projectPriority").value;
     var extraTime = 10;
     var func = "createProject";
+    var img = "default";
 
 
 
@@ -55,24 +54,23 @@ function formSubmit(){
             startDate: startDate,
             priority: priority,
             extraTime: extraTime,
-            function: func 
+            function: func,
+            img: img 
         }) 
         
+        
       })
-      
-
-
+ 
       .then(response => {
 
-     
-
         if (!response.ok) {
+            console.log(body);
             throw new Error(`Hiba a kérés feldolgozásakor: ${response.status} ${response.statusText}`);
         }
     })
     .then(data => {
 
-            alert("A project tlétrehozása sikeres");
+            alert("A project létrehozása sikeres!");
         
     })
     .catch(e => console.log("error::", e));

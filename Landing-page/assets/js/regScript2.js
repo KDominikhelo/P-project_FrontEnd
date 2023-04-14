@@ -63,7 +63,8 @@ function validateForm() {
           firstname: firstname,
           lastname: lastname,
           phone: phone,
-          function: func 
+          function: func,
+          img:"default", 
         }) 
       })
       

@@ -59,7 +59,7 @@ fetch(url, options)
         splittedDescription = project.description.split(' ').slice(0, 5).join(' ');
 
        
-        projects_field.innerHTML += `<div id="${projectNumber + "asd"}" class="col-md-4 mb-2">
+        projects_field.innerHTML += `<div class="col-md-4 mb-2">
         <div class="project_card card">
             <div class="container">
                 <div class="row">
@@ -96,7 +96,7 @@ fetch(url, options)
                         ${project.start_date}
                     </div>
                     <div class="col-6 ">
-                        <div class="btn btn-info p-button" data-bs-toggle="tooltip" data-bs-title="${project.description}">Project megnyitása</div>
+                        <div class="btn btn-info p-button" onclick="openProjectById(${project.id})">Project megnyitása</div>
                     </div>
                 </div>
             </div>
@@ -113,5 +113,48 @@ fetch(url, options)
   });
 
 
-
 });
+
+function openProjectById(id) {
+    
+    
+const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
+
+const data = {
+  function: "getProjectById",
+  id: id,
+};
+
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+};
+
+
+fetch(url, options)
+  .then(response => {
+
+    if (!response.ok) {
+        throw new Error(`Hiba a kérés feldolgozásakor: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+  })
+  .then(data => { 
+
+    localStorage.setItem('project', JSON.stringify(data));
+
+    window.location.href = './getProjectById.html';
+
+  })
+  .catch(error => {
+    console.error(error);
+  });
+
+
+
+
+}

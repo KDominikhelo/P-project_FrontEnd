@@ -12,7 +12,8 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/profile.css">
+    <link rel="stylesheet" href="./assets/css/projectById.css">
+
     <title>P-project</title>
 </head>
 
@@ -135,38 +136,81 @@
     </nav>
 
 
-    <section class="home pt-5">
 
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-4 position-absolute top-50 start-50 translate-middle">
-                    <div class="card ">
-                        <header>
-                            <time datetime="2018-05-15T19:00"></time>
-                            <div class="logo">
-                                <span>
+    <section class="home">
 
-                                </span><img src="../Landing-page/assets/img/image-2.svg" alt="" width="100%"
-                                    height="100%" class="image-responsive bx-border-radius position-relative">
+        <div class="container mt-5">
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <form id="createProjectForm" name="createProjectForm">
 
-                            </div>
-                            <div class="sponsor"></div>
-                        </header>
-                        <div class="announcement">
-                            <h3 id="userNameField_profile"></h3>
-                            <p id="emailField_profile"></p>
-                            <p class="italic" id="phoneField_profile"></p>
+                        <div class="mb-3">
+                            <label for="taskDescription" class="form-label" required>Task leírása</label>
+                            <textarea type="text" name="settaskDescription" class="form-control"
+                                id="taskDescription" cols="30" rows="5" required></textarea>
                         </div>
-                    </div>
+
+                        <div class="mb-3 row">
+                            <label class="form-label">Fejlesztési idő</label>
+                            <div class="col-6">
+                                <label for="devTimeH1" class="form-label">Óra</label>
+                                <input type="text" class="form-control" id="devTimeH" required>
+                            </div>
+                            <div class="col-6">
+                                <label for="devTimeM1" class="form-label">Perc</label>
+                                <input type="text" class="form-control" id="devTimeM" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="projectStartDate" class="form-label" required>Határidő</label>
+                            <input type="datetime-local" class="form-control" id="projectStartDate"
+                                name="projectStartDate" aria-describedby="projectStartDate" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <div class="dropdown">
+                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Developer/Task rewiever
+                                </button>
+                                <div class="dropdown-menu form-select" aria-labelledby="dropdownMenuButton">
+                                  <input class="form-control" type="search" placeholder="Keresés" aria-label="Search" id="searchRewiever">
+                                  
+                                  <div id="rewieverList">
+
+                                    </div>
+                                </div>
+                              </div>
+
+                              <ul class="list-group" id="resultList">
+                              </ul>
+
+                          </div>
+
+                        <div class="mb-3">
+                            <label for="taskPriority">Task prioritása:</label>
+                            <select class="form-select" id="taskPriority" name="setTaskPriority">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                        </div>
+
+                  <button type="submit" class="btn btn-success">Task létrehozása</button>
+                    </form>
                 </div>
             </div>
         </div>
-
 
     </section>
 
 
 
+
+    <script src="./assets/js/task/taskFillController.js"></script>
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/userController.js"></script>

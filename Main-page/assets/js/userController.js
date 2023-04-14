@@ -2,8 +2,6 @@
 window.addEventListener("load", (event) => {
     event.preventDefault();
 
-
-
     if (localStorage.getItem('userData') == null) {
         console.log("Nincs user bejelentkezve");
         window.location.href = '../Landing-page/index.html'; 

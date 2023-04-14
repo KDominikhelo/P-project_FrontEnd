@@ -40,7 +40,7 @@ logForm.addEventListener("submit", (e) => {
         else {
             alert("Sikeres bejelentkezés");
             localStorage.setItem('userData', JSON.stringify(data));
-            window.location.href = '../Main-page/getProjects.html';
+            window.location.href = '../Main-page/getAllProjects.html';
         }
         
     })

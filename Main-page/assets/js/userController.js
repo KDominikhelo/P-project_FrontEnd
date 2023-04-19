@@ -16,18 +16,24 @@ window.addEventListener("load", (event) => {
 
         userField.innerText = "Hello " + userData.first_name + " " +userData.last_name;
 
-
-        var username = document.getElementById("userNameField_profile");
-        var email = document.getElementById("emailField_profile");
-        var phone = document.getElementById("phoneField_profile")
-
-        username.innerText = userData.first_name + " " +userData.last_name;
-        email.innerText = "Email: " + userData.email;
-        phone.innerText = "Phone: " + userData.phone;
+        
+       
+        
 
 
+   }
 
+   if (window.location.href == 'http://p-project.hu/Frontend/Main-page/profile.html') {
 
+   var username = document.getElementById("userNameField_profile");
+   var email = document.getElementById("emailField_profile");
+   var phone = document.getElementById("phoneField_profile")
+
+   username.innerText = userData.first_name + " " +userData.last_name;
+   email.innerText = "Email: " + userData.email;
+   phone.innerText = "Phone: " + userData.phone;
+
+  
    }
  
 

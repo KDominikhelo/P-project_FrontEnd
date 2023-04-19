@@ -143,18 +143,20 @@
         <div class="text" id="projectName">Projects</div>
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-md-3 members">
+                <div class="col-md-5 members">
                     <img class="" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                </div>
-                <div class="col-md-9">
 
+                    <button class="btn btn-success" style="margin-left: 40px;">Projekt szerkesztése</button>
+                </div>
+                <div class="col-md-6 text-end">
+                    <button class="btn btn-danger" onClick="deleteProject()">Projekt törlése</button>
                 </div>
             </div>
         </div>
 
-        <div class="container mt-5">
+        <div class="container-fluid mt-5">
             <div class="row mt-5">
                 <div class="col-md-2 col-sm-12">
 
@@ -170,6 +172,8 @@
                         </div>
 
                         <div class="btn btn-success mt-2"  data-bs-toggle="modal" data-bs-target="#taskCreate">Add Task</div>
+
+                        
                     </div>
 
                 </div>
@@ -307,60 +311,10 @@
 
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModal" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="taskModal">P-project</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+  <div id="modal_task"></div>
 
-                    <div class="row">
-                        <h2>P-project</h2>
-                        <div class="col-md-12">
 
-                            <p>Ez a leírása ennek a projectnek.....</p>
-
-                            <div class="form-floating">
-                                <textarea class="form-control" placeholder="Leave a comment here"
-                                    id="floatingTextarea"></textarea>
-                                <label for="floatingTextarea">Leírás hozzáadása..</label>
-                            </div>
-                            <button class="btn btn-secondary mt-2">Mentés</button>
-                        </div>
-                    </div>
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control dark-input" id="comment" placeholder="Comment">
-                                <label for="comment">Comment</label>
-                            </div>
-                        </div>
-                        <div class="col md-4 text-center">
-
-                            <div class="list-group dark-input">
-                                <button type="button" class="list-group-item list-group-item-action"
-                                    aria-current="true">Kártya beállítás 1</button>
-                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás
-                                    2</button>
-                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás
-                                    3</button>
-                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás
-                                    4</button>
-                                <button type="button" class="list-group-item list-group-item-action">Kártya beállítás
-                                    5</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    
     <script src="./assets/js/projects/getProjectByIdController.js"></script>
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

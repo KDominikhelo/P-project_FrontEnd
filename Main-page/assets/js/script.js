@@ -95,7 +95,6 @@ function toggleMode() {
 
 
 const saveNav = localStorage.getItem('navMode');
-console.log(saveNav);
 if (saveNav === 'close') {
  console.log("itt valami baj van!")
   toggleNav();

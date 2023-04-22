@@ -193,10 +193,8 @@ fetch(url, {
     
                             <div class="list-group dark-input">
                                 <button type="button" class="list-group-item list-group-item-action"
-                                    aria-current="true">Fejlesztő: ${task.developerName}</button>
-                                <button type="button" class="list-group-item list-group-item-action">${task.developerRole}</button>
-                                <button type="button" class="list-group-item list-group-item-action">Ellenőrzi: ${task.reviewerName}</button>
-                                <button type="button" class="list-group-item list-group-item-action">${task.reviewerRole}</button>
+                                    aria-current="true">Fejlesztő: ${task.developerName} <br> ${task.developerRole}</button>
+                                <button type="button" class="list-group-item list-group-item-action">Ellenőrzi: ${task.reviewerName} <br> ${task.reviewerRole}</button>
                                 <button type="button" class="list-group-item list-group-item-action">Határidő: ${task.deadline}</button>
                             </div>
                         </div>
@@ -257,7 +255,7 @@ commentInput.addEventListener('input', () => {
 
             response.user.forEach(user => { 
 
-                mentionList.innerHTML += `<a class="btn btn-primary">${user.first_name +  user.id + ' ' + user.last_name + ' | ' + user.email}</a>`;
+                mentionList.innerHTML += `<a class="btn btn-primary mt-2">${user.first_name + ' ' + user.last_name + ' | ' + user.email}</a>`;
         
 
         
@@ -605,6 +603,14 @@ function deleteProject(){
 
 };
 
+
+function editProject() {
+    
+    window.location.href = "./updateProject.html";
+
+   
+
+}
 
 
 

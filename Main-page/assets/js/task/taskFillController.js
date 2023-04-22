@@ -106,6 +106,7 @@ var userId_s = [];
 function formSubmit() {
 
     const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
     var func = "fillTask";
     var taskId = localStorage.getItem('taskId');
     var content = document.getElementById('taskDescription').value;
@@ -121,8 +122,8 @@ function formSubmit() {
 
     var devTime = devTimeH + ':' +devTimeM + ':00';
 
-    var rewiewTimeH = document.getElementById('rewTimeH');
-    var rewiewTimeM = document.getElementById('rewTimeM');
+    var rewiewTimeH = document.getElementById('rewTimeH').value;
+    var rewiewTimeM = document.getElementById('rewTimeM').value;
 
     if (parseInt(rewiewTimeH) < 10) {
         rewiewTimeH = '0' + rewiewTimeH;
@@ -155,11 +156,17 @@ function formSubmit() {
     var deadLine = `${year}-${month}-${day[0]} ${min}:${sec}:00`;
 
 
-    var rewieverId = userId_s[1];
-
-    var devId = userId_s[0];
+    
 
 
+    if (userId_s.length === 0) {
+        var rewieverId = -1;
+        var devId = -1;
+      } else {
+    
+        var rewieverId = userId_s[1];
+        var devId = userId_s[0];
+      }
 
     
     
@@ -172,6 +179,9 @@ function formSubmit() {
 
         window.location.href = './getProjectById.html';
 
+    }
+    else if(this.readyState == 4 && this.status == 503){
+        window.location.href = './getProjectById.html';
     }
     };
 

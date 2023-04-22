@@ -1,6 +1,52 @@
 
-           
+let clicked = false;
 
+
+window.addEventListener('load', function() {
+
+  document.addEventListener('click', function() {
+    if (!clicked) {
+     
+      var email = localStorage.getItem('userLog').split(' ')[0];
+      var password = localStorage.getItem('userLog').split(' ')[1];
+
+      var func = "login";  
+      
+    const url = 'http://p-project.hu/Backend/Controller/UserController.php';
+
+    fetch(url, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          email: email, 
+          password: password,
+          function: func 
+        }) 
+      })
+      
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Hiba a kérés feldolgozásakor: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+            console.log();("Sikeres bejelentkezés");
+
+
+    })
+
+    .catch(e => console.log("error::", e));
+
+      clicked = true;
+    }
+  });
+});
 
 window.addEventListener("unload", function (event) {
     
@@ -19,8 +65,8 @@ window.addEventListener("unload", function (event) {
     xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 201) {
         var response = JSON.parse(this.responseText);
-        console.log(response);
         localStorage.removeItem('userData');
+        localStorage.removeItem('userLog');
         window.location.href = '../Landing-page/index.html';
     }
     };
@@ -42,7 +88,6 @@ window.addEventListener("unload", function (event) {
 
   
 });
-
 
 
 
@@ -87,6 +132,7 @@ const logOutBtn = (e) => {
         console.log(data)
             alert("Viszlát");
             localStorage.removeItem('userData');
+            localStorage.removeItem('userLog');
             window.location.href = '../Landing-page/index.html';
         
     })

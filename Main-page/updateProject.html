@@ -19,7 +19,7 @@
 
 <body>
 
-    <nav class="sidebar close d-none d-lg-block">
+    <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -89,7 +89,7 @@
                     </a>
                 </li>
 
-                <li class="mode">
+                <li class="mode mb-4">
                     <div class="sun-moon">
                         <i class='bx bx-moon icon moon'></i>
                         <i class='bx bx-sun icon sun'></i>
@@ -106,104 +106,42 @@
 
     </nav>
 
-    <nav class="d-lg-none navbar navbar-expand-lg felso-nav">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                P-project
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./getAllProjects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./calendar.html">Calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-5" href="./teams.html">Teams</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-5 logOutBtn">Kijelentkezés</a>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-outline-secondary shadow-sm d-sm d-block">Kép</a>
-            </div>
-        </div>
-    </nav>
-
-
-
     <section class="home">
 
         <div class="container mt-5">
             <div class="row mt-5">
                 <div class="col-md-12">
-                    <form id="fillTaskForm" name="getFillTaskForm">
+                    <form id="updateProjectForm" name="getupdateProjectForm">
+
 
                         <div class="mb-3">
-                            <label for="taskDescription" class="form-label" required>Task leírása</label>
-                            <textarea type="text" name="settaskDescription" class="form-control"
-                                id="taskDescription" cols="30" rows="5" required></textarea>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="form-label">Fejlesztési idő</label>
-                            <div class="col-6">
-                                <label for="devTimeH1" class="form-label">Óra</label>
-                                <input type="text" class="form-control" id="devTimeH" required>
-                            </div>
-                            <div class="col-6">
-                                <label for="devTimeM1" class="form-label">Perc</label>
-                                <input type="text" class="form-control" id="devTimeM" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-3 row">
-                            <label class="form-label">Vizsgálati idő</label>
-                            <div class="col-6">
-                                <label for="devTimeH1" class="form-label">Óra</label>
-                                <input type="text" class="form-control" id="rewTimeH" required>
-                            </div>
-                            <div class="col-6">
-                                <label for="devTimeM1" class="form-label">Perc</label>
-                                <input type="text" class="form-control" id="rewTimeM" required>
-                            </div>
+                            <label for="projectImg" class="form-label" required>Kép hogy ne felejtsem el</label>
                         </div>
 
                         <div class="mb-3">
-                            <label for="taskDeadLine" class="form-label" required>Határidő</label>
-                            <input type="datetime-local" class="form-control" id="taskDeadLine"
-                                name="taskDeadLine" aria-describedby="taskDeadLine" required>
-
+                            <label for="projectName" class="form-label" required>Project neve</label>
+                            <textarea type="text" name="setprojectName" class="form-control"
+                                id="projectName" cols="30" rows="1" required></textarea>
                         </div>
 
                         <div class="mb-3">
+                            <label for="projectDescription" class="form-label" required>Project leírása</label>
+                            <textarea type="text" name="setprojectDescription" class="form-control"
+                                id="projectDescription" cols="30" rows="5" required></textarea>
+                        </div>
 
-                            <div class="dropdown">
-                                <button class="form-control dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Developer/Task rewiever
-                                </button>
-                                <div class="dropdown-menu form-select" aria-labelledby="dropdownMenuButton">
-                                  <input class="form-control" type="search" placeholder="Keresés" aria-label="Search" id="searchRewiever">
-                                  
-                                  <div id="rewieverList">
+                    
+                        <div class="mb-3">
+                            <label for="projectStartDate" class="form-label" required>Kezdési idő</label>
+                            <input type="datetime-local" class="form-control" id="projectStartDate"
+                                name="setprojectStartDate" aria-describedby="projectStartDate" required>
 
-                                    </div>
-                                </div>
-                              </div>
+                        </div>
 
-                              <ul class="list-group" id="resultList">
-                              </ul>
-
-                          </div>
 
                         <div class="mb-3">
-                            <label for="taskPriority">Task prioritása:</label>
-                            <select class="form-select" id="taskPriority" name="setTaskPriority">
+                            <label for="projectPriority">Project prioritása:</label>
+                            <select class="form-select" id="projectPriority" name="setprojectPriority">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -211,7 +149,7 @@
                             </select>
                         </div>
 
-                  <button type="submit" class="btn btn-success">Task létrehozása</button>
+                  <button type="submit" class="btn btn-success">Project szerkesztése</button>
                     </form>
                 </div>
             </div>
@@ -222,7 +160,7 @@
 
 
 
-    <script src="./assets/js/task/taskFillController.js"></script>
+    <script src="./assets/js/projects/updateProject.js"></script>
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/userController.js"></script>

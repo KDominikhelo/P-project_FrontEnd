@@ -9,6 +9,7 @@ logForm.addEventListener("submit", (e) => {
     var func = "login";
 
 
+    localStorage.setItem('userLog', email + ' ' + password)
 
     const url = 'http://p-project.hu/Backend/Controller/UserController.php';
 

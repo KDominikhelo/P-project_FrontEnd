@@ -1,15 +1,19 @@
 
+const updateProjectForm = document.getElementById("updateProjectForm");
 
+var projectDatas = localStorage.getItem('project');
+var projectData = JSON.parse(projectDatas).Project;
 
-const createPorjectForm = document.getElementById("createProjectForm");
+updateProjectForm.addEventListener("submit", (event) => {
 
-createPorjectForm.addEventListener("submit", (event) => {
-
-    formSubmit();
+    event.preventDefault();
+    updateProject();
 
 });
 
-function formSubmit(){
+
+
+function updateProject(){
 
     const dateTime = document.getElementById("projectStartDate");
 
@@ -30,7 +34,7 @@ function formSubmit(){
     var startDate = `${year}-${month}-${day[0]} ${min}:${sec}:00`;
     var priority = document.getElementById("projectPriority").value;
     var extraTime = 10;
-    var func = "createProject";
+    var func = "updateProject";
     var img = "default";
 
 
@@ -55,7 +59,8 @@ function formSubmit(){
             priority: priority,
             extraTime: extraTime,
             function: func,
-            img: img 
+            img: img,
+            id: projectData.id 
         }) 
         
         
@@ -70,17 +75,11 @@ function formSubmit(){
     })
     .then(data => {
 
-            alert(data.message);
+            alert('A Project adatok sikeresen megváltoztak!');
+            window.location.href = './getAllProjects.html';
         
     })
     .catch(e => console.log("error::", e));
-
-
-
-
-
-
-
 
 
 }

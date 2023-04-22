@@ -19,7 +19,7 @@
 
 <body>
 
-    <nav class="sidebar close d-none d-lg-block">
+    <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -89,7 +89,7 @@
                     </a>
                 </li>
 
-                <li class="mode">
+                <li class="mode mb-4">
                     <div class="sun-moon">
                         <i class='bx bx-moon icon moon'></i>
                         <i class='bx bx-sun icon sun'></i>
@@ -106,34 +106,7 @@
 
     </nav>
 
-    <nav class="d-lg-none navbar navbar-expand-lg felso-nav">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                P-project
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./getAllProjects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./calendar.html">Calendar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-5" href="./teams.html">Teams</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link me-5 logOutBtn">Kijelentkezés</a>
-                    </li>
-                </ul>
-                <a href="#" class="btn btn-outline-secondary shadow-sm d-sm d-block">Kép</a>
-            </div>
-        </div>
-    </nav>
+    
 
 
 
@@ -148,7 +121,7 @@
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
 
-                    <button class="btn btn-success" style="margin-left: 40px;">Projekt szerkesztése</button>
+                    <button class="btn btn-success" style="margin-left: 40px;" onClick="editProject()">Projekt szerkesztése</button>
                 </div>
                 <div class="col-md-6 text-end">
                     <button class="btn btn-danger" onClick="deleteProject()">Projekt törlése</button>

@@ -37,6 +37,7 @@
 
 .project_image{
     width: 100%;
+    height: 220px;
     border-radius: 20px;
     box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.75);
 }
@@ -55,7 +56,7 @@
 }
 
 .project_owner_name{
-    position: absolute;
+    margin-top: 20px;
     font-size: 22px;
 }
 .collabs img{

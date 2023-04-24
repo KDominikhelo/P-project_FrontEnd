@@ -162,7 +162,15 @@ function formSubmit() {
     if (userId_s.length === 0) {
         var rewieverId = -1;
         var devId = -1;
-      } else {
+      }
+      
+    else if (userId_s.length === 1){
+        var devId = userId_s[0];
+        var rewieverId = -1;
+
+    }  
+      
+      else {
     
         var rewieverId = userId_s[1];
         var devId = userId_s[0];

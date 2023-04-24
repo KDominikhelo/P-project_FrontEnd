@@ -73,6 +73,7 @@ function validateForm() {
             alert("A User-t nem lehetett létrehozni. A jelszó nem elég hosszú, vagy az email már foglalt!")
         }else{
             alert("A regisztráció sikeresen megtörtént!")
+            window.location.href = './index.html';
         }
     })
     .catch(e => console.log("error::", e));

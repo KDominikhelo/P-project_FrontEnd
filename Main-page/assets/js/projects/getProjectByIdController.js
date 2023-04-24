@@ -374,7 +374,17 @@ function commentShow(taskId) {
 function deleteComment(commentId,taskId) {
 
 
+    console.log(commentId);
+
+    const body = {
+        comment: commentId,
+        function: 'deleteComment'
+    };
+
+    console.log(typeof(body));
+
     const url = 'http://p-project.hu/Backend/Controller/CommentController.php';
+
 
     fetch(url, {
         method: "POST",
@@ -383,10 +393,7 @@ function deleteComment(commentId,taskId) {
           "Content-Type": "application/json",
           "Accept": "application/json",
         },
-        body: JSON.stringify({
-            comment: commentId,
-            function: 'deleteComment'
-        }) 
+        body: JSON.stringify(body) 
       })
       
     .then(response => {
@@ -404,7 +411,7 @@ function deleteComment(commentId,taskId) {
      
     })
 
-    .catch(e => alert('Nincs jogosultságod törölni a kommentet!'));
+    .catch(e => console.log("error::", e));
 
 
     

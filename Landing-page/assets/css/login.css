@@ -1,0 +1,49 @@
+.loginField_bg{
+    background-image: url('../img/logImg.jpg');
+    padding-bottom: 40px;
+    border-right: 2px grey;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: inherit;
+}
+
+.loginField{
+
+    background-color: #89B5CA;
+    height: 100vh;
+    border-left: 1px solid grey;
+
+}
+
+.brand{
+    margin-top: 20%;
+    margin-bottom: 50px;
+}
+
+.inputField{
+    width: 500px;
+    margin: auto;
+}
+
+.labelForInput{
+    margin-right: 60%;
+}
+
+.logButton{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #006685;
+    border-radius: 15px;
+    border: 0;
+}
+
+.regButton{
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #009FB7;
+    border-radius: 15px;
+    border: 0;
+}
+

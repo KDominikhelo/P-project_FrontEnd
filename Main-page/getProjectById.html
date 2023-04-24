@@ -116,14 +116,15 @@
         <div class="text" id="projectName">Projects</div>
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-md-5 members">
+                <div class="col-md-7 members">
                     <img class="" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                     <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
 
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addMemberToProject">Felhasználó hozzáadása a projekthez</button>
                     <button class="btn btn-success" style="margin-left: 40px;" onClick="editProject()">Projekt szerkesztése</button>
                 </div>
-                <div class="col-md-6 text-end">
+                <div class="col-md-5 text-end">
                     <button class="btn btn-danger" onClick="deleteProject()">Projekt törlése</button>
                 </div>
             </div>
@@ -219,29 +220,39 @@
 
     </section>
 
- <div class="modal fade" id="taskFill" tabindex="-1" aria-labelledby="taskFill2" aria-hidden="true">
+
+
+ <div class="modal fade modal-xl" id="addMemberToProject" tabindex="-1" aria-labelledby="addMemberToProject" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5">Task kitöltés</h1>
+          <h1 class="modal-title fs-5" id="addMemberToProject">Felhasználó(k) hozzáadás</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
-          <form id="taskFillFrom">
+          <form id="addMemberToProjectForm">
 
 
             <div class="mb-3">
-              <label for="taskTitleInput" class="form-label">Task Title</label>
-              <input type="text" class="form-control" id="taskTitle" name="email" aria-describedby="taskTitleInput" required>
+              <label for="searchUserToAddProject" class="form-label">Keresés</label>
+              <input type="text" class="form-control" id="searchUserToAddProject" name="email" aria-describedby="searchUserToAddProject">
             </div>
            
 
+             <div id="addUserField" class="dropdown mb-3">
+
+             </div>
+
+
+             <ul id="resultList" class="list-group">
+
+             </ul>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
-          <button type="submit" class="btn btn-success" >Fill Task</button>
+          <button type="submit" class="btn btn-success" >Hozzáadás</button>
           </form>
         </div>
       </div>
@@ -287,7 +298,7 @@
   <div id="modal_task"></div>
 
 
-    
+    <script src="./assets/js/projects/addUserToProjectController.js"></script>
     <script src="./assets/js/projects/getProjectByIdController.js"></script>
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

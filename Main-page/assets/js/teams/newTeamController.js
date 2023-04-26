@@ -60,3 +60,40 @@ function formSubmit() {
 
 
 }
+
+
+
+function addNewUserToField(){
+
+var addNewField = document.getElementById('addUserField');
+
+
+
+addNewField.innerHTML += `
+<div class="row mt-2">
+
+    <div class="col-2">
+        <img style="width: 100%; border-radius: 50%;" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+    </div>
+
+    <div class="col-10">
+        <input type="text" class="form-control" placeholder="email cím">
+
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Role</option>
+            <option value="Developer">Developer</option>
+            <option value="Frontend">Frontend</option>
+            <option value="Backend">Backend</option>
+            <option value="Product Owner">Product Owner</option>
+            <option value="Projectmanager">Projectmanager</option>
+          </select>
+
+    </div>
+
+</div>`
+
+
+
+
+
+}

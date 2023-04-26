@@ -348,10 +348,10 @@ function commentShow(taskId) {
 
             data.comment.map(comment_s => {
      
-                commentField.innerHTML += `<li class="list-group-item rewiever" >${comment_s.first_name + " " + comment_s.last_name + " | " + comment_s.name+ ' : ' + comment_s.content + ' ' + comment_s.created_at}  <button class="btn btn-primary text-end">O</button> <button class="btn btn-danger text-end" onClick="deleteComment(${comment_s.id,taskId})">X</button> </li>`;
+                commentField.innerHTML += `<li class="list-group-item rewiever" >${comment_s.first_name + " " + comment_s.last_name + " | " + comment_s.name+ ' : ' + comment_s.content + ' ' + comment_s.created_at}  <button class="btn btn-primary text-end">O</button> <button class="btn btn-danger text-end" onClick="deleteComment(${comment_s.id},${taskId})">X</button> </li>`;
           
 
-            
+                console.log(comment_s.id);
     
             });
         
@@ -381,7 +381,7 @@ function deleteComment(commentId,taskId) {
         function: 'deleteComment'
     };
 
-    console.log(typeof(body));
+
 
     const url = 'http://p-project.hu/Backend/Controller/CommentController.php';
 

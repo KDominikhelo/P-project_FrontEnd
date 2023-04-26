@@ -105,7 +105,7 @@ window.addEventListener("load", (event) => {
                 </div>
                 <div class="row ">
                     <div class="col-6 text-center">
-                        <div class="btn btn-success p-button">Meghívás</div>
+                        <div class="btn btn-success p-button" onClick="inviteUserToTeam(${project.id})">Meghívás</div>
                     </div>
                     <div class="col-6 text-center">
                         <div class="btn btn-primary p-button" onClick="editTeam(${project.id})">Szerkesztés</div>
@@ -141,11 +141,16 @@ window.addEventListener("load", (event) => {
     });
 
 
-    function editTeam(teamId) {
+    function editTeam(team) {
         
 
         window.location.href = './editTeam.html';
 
+
+        var teamNameField = document.getElementById('teamNameField');
+
+
+        teamNameField.innerText = team.name;
 
 
     }

@@ -1,7 +1,7 @@
     var searchInput = document.getElementById('searchUserToAddProject');
     
     var resultList1 = document.getElementById('addUserField');
-
+    var userId_s = [];
 
     searchInput.addEventListener('input', () => {
 
@@ -25,9 +25,22 @@
      
             response.user.forEach(user => {
          
-           
-            resultList1.innerHTML += `<a class="dropdown-item mt-2" onclick="userSave('${user.email}')">${user.first_name + " " + user.last_name + " | " + user.email}</a> <div class="dropdown-divider"></div>`;
+                var userDatas = localStorage.getItem('userData');
+                var userData = JSON.parse(userDatas).user;
+if(userData.id !== user.id){
+    var bool = true;
+    userId_s.forEach(data=>{
+        if (data.user == user.id ){
+            bool = false
+        }
+         
+    })
+    if (bool) {
+        resultList1.innerHTML += `<a class="dropdown-item mt-2" onclick="userSave('${user.email}')">${user.first_name + " " + user.last_name + " | " + user.email}</a> <div class="dropdown-divider"></div>`;
       
+    }
+
+}
     
         });
     
@@ -47,7 +60,7 @@
 
     var resultList = document.getElementById("resultList");
 
-var userId_s = [];
+
 
  function userSave(userEmail) {
     
@@ -62,18 +75,55 @@ var userId_s = [];
     var xhttp = new XMLHttpRequest();
     
     xhttp.onreadystatechange = function() {
+        console.log(userId_s);
     if (this.readyState == 4 && this.status == 201) {
 
         var response = JSON.parse(this.responseText);
 
 
      response.user.forEach(user => {
-     
+     console.log(user , "user DATA");
        
-        resultList.innerHTML += `<li id="${user.id}" class="list-group-item rewiever">${user.first_name + " " + user.last_name + " | " + user.email} <input type="checkbox" class="btn-check" id="btncheck${user.id}" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btncheck${user.id}">Editor</label>   <input type="checkbox" class="btn-check" id="btncheck${user.email}" autocomplete="off">  <label class="btn btn-outline-primary" for="btncheck${user.email}">Reviewer</label> </li>`;
+        resultList.innerHTML += `<li id="${user.id}" class="list-group-item rewiever">${user.first_name + " " + user.last_name + " | " + user.email} <input type="checkbox" class="btn-check" id="btncheckEditor${user.id}" autocomplete="off">
+        <label class="btn btn-outline-primary" for="btncheckEditor${user.id}">Editor</label>   <input type="checkbox" class="btn-check" id="btncheckReviewr${user.id}" autocomplete="off">  <label class="btn btn-outline-primary" for="btncheckReviewr${user.id}">Reviewer</label> </li>`;
   
-        userId_s.push(user.id);
+        var projectDatas = localStorage.getItem('project');
+        var projectData = JSON.parse(projectDatas).Project;
+
+
+        if(document.getElementById(`btncheckEditor${user.id}`) && document.getElementById(`btncheckReviewr${user.id}`) ){
+            userId_s.push({
+                function:"addUserToProject",
+                project:parseInt(projectData.id),
+                user: parseInt(user.id),
+                role:6,
+                editor:document.getElementById(`btncheckEditor${user.id}`).checked ,
+                reviewer:document.getElementById(`btncheckReviewr${user.id}`).checked
+            }
+            );
+            userId_s.forEach((item)=>{
+               
+                document.getElementById(`btncheckEditor${item.user}`).addEventListener("click",()=>{
+                       console.log("btncheckEditor" ,item.user);
+                      item.editor = document.getElementById(`btncheckEditor${item.user}`).checked  
+                   
+                })
+                document.getElementById(`btncheckReviewr${item.user}`).addEventListener("click",()=>{
+                    
+                  
+                      console.log("btncheckReviewr" ,item.user);
+                   item.reviewer = document.getElementById(`btncheckReviewr${item.user}`).checked
+                      
+                })
+                  
+           })
+                
+            
+           
+            
+            
+        }
+                  
 
 
     });
@@ -96,10 +146,10 @@ var userId_s = [];
 
 
 
- const fillTaskForm = document.getElementById("fillTaskForm");
+ const addMemberToProjectForm = document.getElementById("addMemberToProjectForm");
 
 
- fillTaskForm.addEventListener("submit", (e) => {
+ addMemberToProjectForm.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
@@ -111,114 +161,26 @@ var userId_s = [];
 
 
 function formSubmit() {
-
-    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
-
-    var func = "fillTask";
-    var taskId = localStorage.getItem('taskId');
-    var content = document.getElementById('taskDescription').value;
-
-    var devTimeH = document.getElementById('devTimeH').value;
-    var devTimeM = document.getElementById('devTimeM').value;
-    if (parseInt(devTimeH) < 10) {
-        devTimeH = '0' + devTimeH;
-    }
-    if (parseInt(devTimeM)< 10) {
-        devTimeM = '' + devTimeM;
-    }
-
-    var devTime = devTimeH + ':' +devTimeM + ':00';
-
-    var rewiewTimeH = document.getElementById('rewTimeH').value;
-    var rewiewTimeM = document.getElementById('rewTimeM').value;
-
-    if (parseInt(rewiewTimeH) < 10) {
-        rewiewTimeH = '0' + rewiewTimeH;
-    }
-    if (parseInt(rewiewTimeM)< 10) {
-        rewiewTimeM = '' + rewiewTimeM;
-    }
-
-    var reviewTime = rewiewTimeH + ':' + rewiewTimeM + ':00';
     
-    var taskPriority = document.getElementById('taskPriority').value;
-
-    var columnId = 1;
-
-
+   for (let i = 0; i < userId_s.length; i++) {
+     console.log(JSON.stringify(userId_s[i]));
+     console.log(userId_s[i]);
+    fetch("http://p-project.hu/Backend/Controller/ProjectController.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(userId_s[i])
+    }).then(data=>{
+        return data.json();
+    }).then(data=>{
+        alert(data.message)
+    }).catch(err=>{
+        console.log(err);
+    })
+   
+   }
     
-
-    const dateTime = document.getElementById("taskDeadLine");
-
-
-    const splitted = dateTime.value.split("-");
-    const year = splitted[0];
-    const month = splitted[1];
-    const day_min_sec = splitted[2];
-    const day = day_min_sec.split("T");
-    const min_sec = day[1].split(":");
-    const min = min_sec[0];
-    const sec = min_sec[0];
-
-    var deadLine = `${year}-${month}-${day[0]} ${min}:${sec}:00`;
-
-
-    
-
-
-    if (userId_s.length === 0) {
-        var rewieverId = -1;
-        var devId = -1;
-      }
-      
-    else if (userId_s.length === 1){
-        var devId = userId_s[0];
-        var rewieverId = -1;
-
-    }  
-      
-      else {
-    
-        var rewieverId = userId_s[1];
-        var devId = userId_s[0];
-      }
-
-    
-    
-    
-
-    var xhttp = new XMLHttpRequest();
-    
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 201) {
-
-        window.location.href = './getProjectById.html';
-
-    }
-    else if(this.readyState == 4 && this.status == 503){
-        window.location.href = './getProjectById.html';
-    }
-    };
-
-
-
-
-    xhttp.open("POST", url, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.setRequestHeader("Accept", "application/json");
-    xhttp.withCredentials = true;
-    xhttp.send(JSON.stringify({
-    function: func,
-    id: parseInt(taskId),
-    content: content,
-    devTime: devTime,
-    reviewTime: reviewTime,
-    priority: taskPriority,
-    columnId: parseInt(columnId),
-    deadline: deadLine,
-    devId: parseInt(devId),
-    reviewId: parseInt(rewieverId)
-    }));
-
 
 }

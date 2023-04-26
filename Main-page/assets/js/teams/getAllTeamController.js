@@ -82,6 +82,7 @@ window.addEventListener("load", (event) => {
         projects.forEach(project => {
          
 
+          
     
            
             team_field.innerHTML += `
@@ -108,7 +109,7 @@ window.addEventListener("load", (event) => {
                         <div class="btn btn-success p-button" onClick="inviteUserToTeam(${project.id})">Meghívás</div>
                     </div>
                     <div class="col-6 text-center">
-                        <div class="btn btn-primary p-button" onClick="editTeam(${project.id})">Szerkesztés</div>
+                        <div class="btn btn-primary p-button" onClick="editTeam(${project.id},'${project.name}')">Szerkesztés</div>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -141,16 +142,11 @@ window.addEventListener("load", (event) => {
     });
 
 
-    function editTeam(team) {
+    function editTeam(teamId,teamName) {
         
+      localStorage.setItem('teammIdAndName', teamId + ' ' + teamName)
 
         window.location.href = './editTeam.html';
-
-
-        var teamNameField = document.getElementById('teamNameField');
-
-
-        teamNameField.innerText = team.name;
 
 
     }

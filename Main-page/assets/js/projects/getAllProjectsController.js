@@ -112,12 +112,8 @@ fetch(url, options)
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="collabs">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                        </div>
-                        <p>@02-user és további 2 ember társaságában.</p>
+                        <div class="collabs" id="collabs"></div>
+                        <p id="collabText" class="inline-flex"></p> 
                     </div>
                 </div>
                 <div class="row mt-3 mb-3">
@@ -131,7 +127,7 @@ fetch(url, options)
             </div>
         </div>
     </div>`;
-  
+    getProjectusers(project.id)
     projectNumber++;
 
 
@@ -143,6 +139,96 @@ fetch(url, options)
 
 
 });
+
+
+
+
+
+function getProjectusers(id) {
+  
+
+const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
+
+var collabs = document.getElementById('collabs');
+
+var collabText = document.getElementById('collabText');
+
+
+const data = {
+  function: "getUserByProjectId",
+  id: id,
+};
+
+const options = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+};
+
+
+fetch(url, options)
+
+  .then(response => {
+
+    if (!response.ok) {
+        throw new Error(`Hiba a kérés feldolgozásakor: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json();
+  })
+  .then(data => { 
+
+
+    const users = data.Result;
+
+    users.forEach(user => {
+     
+
+
+
+       
+           collabs.innerHTML += `
+                          <span class="tt" data-bs-placement="bottom" title="${user.first_name + ' ' + user.last_name + ' ' + user.name}">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                          </span>
+                   `;
+  
+
+           collabText.innerText += `${user.first_name + ' ' + user.last_name},`       
+
+
+    });
+
+
+  })
+
+  .catch(error => {
+    console.error(error);
+  });
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function openProjectById(id) {
     

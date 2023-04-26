@@ -6,8 +6,6 @@ var projectData = JSON.parse(projectDatas).Project;
 var userDatas = localStorage.getItem('userData');
 var userData = JSON.parse(userDatas).user;
 
-var taskField = document.getElementById('tasks');
-
 
 
 
@@ -55,21 +53,13 @@ fetch(url, {
         }
 
       
-     
-        taskField.innerHTML += `
-                                <div class="card mt-2" draggable="true">
-                                    <div class="card-header">${task.title}</div>
-                                    <div class="card-body" onclick="createModalForTask(${task.id})">
-                                        <p>${task.content}</p>
-                                    </div>
-                                </div>
-
-
-                              
-    
-
-                                
-                                `;
+       document.getElementById(task.column_id).innerHTML += `
+       <div ondrag="moveTask(${task.id})" class="card mt-2" draggable="true">
+           <div class="card-header">${task.title}</div>
+           <div class="card-body" onclick="createModalForTask(${task.id})">
+               <p>${task.content}</p>
+           </div>
+       </div>`;
   
 
     });
@@ -82,6 +72,12 @@ fetch(url, {
 });
 
 });
+
+
+function moveTask(taskId) {
+    
+    localStorage.setItem('movingTask', taskId);
+}
 
 
 function createModalForTask(taskId) {

@@ -1,5 +1,5 @@
 const columns = document.querySelectorAll(".column");
-
+var oldposition;
 
 document.addEventListener("dragstart", (e) => {
   e.target.classList.add("dragging");
@@ -7,6 +7,7 @@ document.addEventListener("dragstart", (e) => {
 
 document.addEventListener("dragend", (e) => {
   e.target.classList.remove("dragging");
+
 });
 
 columns.forEach((item) => {
@@ -23,6 +24,35 @@ columns.forEach((item) => {
 });
 
 function getNewPosition(column, posY) {
+
+  if (oldposition !== column) {
+    oldposition = column;
+   
+    const task = {
+      function:"moveTask",
+      id:parseInt(localStorage.getItem("movingTask")),
+      column: parseInt(column.id)
+    }
+    
+    console.log(task);
+
+    fetch("http://p-project.hu/Backend/Controller/TaskController.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify(task)
+    }).then(data=>{
+        return data.json();
+    }).then(data=>{
+        console.log(data.message);
+    }).catch(err=>{
+        console.log(err);
+    })
+   
+  }
+  
   const cards = column.querySelectorAll(".item:not(.dragging)");
   let result;
 

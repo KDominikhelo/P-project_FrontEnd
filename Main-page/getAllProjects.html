@@ -119,6 +119,13 @@
         <div class="container">
 
 
+        <div class="row">
+
+            <div class="col-md-12 text-start">
+                <button class="btn btn-dark mb-3" onclick="restoreArchiveProjects()">Archivált projectek visszaállítása</button>
+            </div>
+
+        </div>
 
 
             <div class="row" id="projects">
@@ -202,7 +209,21 @@
 
 
 
+<script>
+    function restoreArchiveProjects() {
 
+window.location.href = './restoreProjects.html';
+
+}
+
+</script>
+
+<script>
+    const tooltips = document.querySelectorAll('tt');
+    tooltips.forEach(t => {
+        new bootstrap.Tooltip(t);
+    })
+</script>
 
     <script src="./assets/js/projects/getAllProjectsController.js"></script>
     <script src="../Landing-page/assets/js/logoutScript.js"></script>

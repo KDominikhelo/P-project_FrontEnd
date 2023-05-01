@@ -136,7 +136,6 @@ function formSubmit() {
     
     var taskPriority = document.getElementById('taskPriority').value;
 
-    var columnId = 1;
 
 
     
@@ -177,41 +176,34 @@ function formSubmit() {
       }
 
     
-    
-    
 
-    var xhttp = new XMLHttpRequest();
-    
-    xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 201) {
+fetch(url,{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
 
-        window.location.href = './getProjectById.html';
-
-    }
-    else if(this.readyState == 4 && this.status == 503){
-        window.location.href = './getProjectById.html';
-    }
-    };
-
-
-
-
-    xhttp.open("POST", url, true);
-    xhttp.setRequestHeader("Content-Type", "application/json");
-    xhttp.setRequestHeader("Accept", "application/json");
-    xhttp.withCredentials = true;
-    xhttp.send(JSON.stringify({
     function: func,
     id: parseInt(taskId),
     content: content,
     devTime: devTime,
     reviewTime: reviewTime,
-    priority: taskPriority,
-    columnId: parseInt(columnId),
+    priority: parseInt(taskPriority),
     deadline: deadLine,
     devId: parseInt(devId),
     reviewId: parseInt(rewieverId)
-    }));
 
-
-}
+        })
+    }).then(data=>{
+        return data.json();
+    }).then(data=>{
+        alert(data.message)
+    }).catch(err=>{
+        console.log(err);
+    })
+   
+   }
+    
+    

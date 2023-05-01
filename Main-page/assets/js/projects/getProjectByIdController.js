@@ -155,8 +155,9 @@ fetch(url, {
                         <h2>${task.title}</h2>
                         <div class="col-md-12">
     
+                          
                             <p>${task.content}</p>
-    
+                           
                             <div class="">
                                 <label for="floatingTextarea">Task prioritása: ${task.priority}</label>
                             </div>
@@ -302,7 +303,7 @@ function taskszerkesztes(taskId) {
 
     localStorage.setItem('taskId', taskId)
         
-        window.location.href = './taskFill.html';
+        window.location.href = './updateTask.html';
     
 }
 

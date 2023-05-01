@@ -107,7 +107,9 @@ fetch(url, options)
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="description">${splittedDescription + "..."}</p>
+                      <span  class="tt" data-bs-placement="bottom" title="${project.description}">
+                        <p class="description">${splittedDescription}...</p>
+                      </span>  
                     </div>
                 </div>
                 <div class="row">

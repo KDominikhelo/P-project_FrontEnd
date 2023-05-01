@@ -14,6 +14,10 @@ var userData = JSON.parse(userDatas).user;
 window.addEventListener("load", (event) => {
 
 
+
+usersOnProject()
+
+
 projectName.innerText = projectData.name;
 
 
@@ -164,6 +168,14 @@ fetch(url, {
                         </div>
                     </div>
                     <hr>
+
+                    <div class="row mt-5">
+                    
+                    <div class="col-md-12">
+                    
+                    Ide jön majd a checkField rész
+
+                    </div>
     
                     <div class="row mt-5">
                         <div class="col-md-8">
@@ -293,7 +305,64 @@ commentInput.addEventListener('input', () => {
 
 
 
+function usersOnProject() {
+    
+    var usersOnProject_field = document.getElementById('usersOnTheProject');
 
+
+    const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
+
+    const data = {
+      function: "getUserByProjectId",
+      id: projectData.id,
+    };
+    
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    
+    
+    fetch(url, options)
+    
+      .then(response => {
+    
+        if (!response.ok) {
+            throw new Error(`Hiba a kérés feldolgozásakor: ${response.status} ${response.statusText}`);
+        }
+    
+        return response.json();
+      })
+      .then(data => { 
+    
+    
+        const users = data.Result;
+    
+        users.forEach(user => {
+         
+    
+        
+            usersOnProject_field.innerHTML += `
+                              <span class="tt" data-bs-placement="bottom" title="${user.first_name + ' ' + user.last_name + ' ' + user.name}">
+                              <img class="" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                              </span>
+                       `;
+      
+    
+    
+        });
+    
+    
+      })
+    
+      .catch(error => {
+        console.error(error);
+      });
+    
+}
 
 
     

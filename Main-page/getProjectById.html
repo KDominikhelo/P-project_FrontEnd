@@ -41,7 +41,7 @@
 
 
 
-                <ul class="menu-links search-box">
+                <ul class="menu-links">
 
                     <li class="search-box toggle2">
                         <i class='bx bx-search icon'></i>
@@ -49,6 +49,17 @@
 
                     </li>
 
+
+                    <li class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='bx bx-bell icon'></i>
+                            <span class="text nav-text">Notifications</span>
+                            <span>notification amount</span>
+
+
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Notification #1</a></li>
+                              </ul>
+                    </li>
 
                     <li class="">
                         <a href="./getAllProjects.html">
@@ -82,7 +93,7 @@
             </div>
 
             <div class="bottom-content">
-                <li class="">
+                <li class="" style="margin-left: 30px">
                     <a class="logOutBtn">
                         <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
@@ -116,11 +127,10 @@
         <div class="text" id="projectName">Projects</div>
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-md-7 members">
-                    <img class="" src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-
+                <div class="col-md-12 members"> <div id="usersOnTheProject"></div> </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 mt-2">
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addMemberToProject">Felhasználó hozzáadása a projekthez</button>
                     <button class="btn btn-success" style="margin-left: 40px;" onClick="editProject()">Projekt szerkesztése</button>
                 </div>
@@ -296,7 +306,6 @@
 
 
   <div id="modal_task"></div>
-
 
     <script src="./assets/js/projects/addUserToProjectController.js"></script>
     <script src="./assets/js/projects/getProjectByIdController.js"></script>

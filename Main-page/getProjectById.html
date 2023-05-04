@@ -50,15 +50,15 @@
                     </li>
 
 
-                    <li class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a href="">
                             <i class='bx bx-bell icon'></i>
+                            <span class="notification_amount text-center">1</span>
                             <span class="text nav-text">Notifications</span>
-                            <span>notification amount</span>
-
-
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Notification #1</a></li>
-                              </ul>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Notification #1</a></li>
+                        </ul>
                     </li>
 
                     <li class="">
@@ -117,7 +117,7 @@
 
     </nav>
 
-    
+
 
 
 
@@ -127,12 +127,16 @@
         <div class="text" id="projectName">Projects</div>
         <div class="container-fluid mt-5">
             <div class="row">
-                <div class="col-md-12 members"> <div id="usersOnTheProject"></div> </div>
+                <div class="col-md-12 members">
+                    <div id="usersOnTheProject"></div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-7 mt-2">
-                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addMemberToProject">Felhasználó hozzáadása a projekthez</button>
-                    <button class="btn btn-success" style="margin-left: 40px;" onClick="editProject()">Projekt szerkesztése</button>
+                    <button class="btn btn-success" data-bs-toggle="modal"
+                        data-bs-target="#addMemberToProject">Felhasználó hozzáadása a projekthez</button>
+                    <button class="btn btn-success" style="margin-left: 40px;" onClick="editProject()">Projekt
+                        szerkesztése</button>
                 </div>
                 <div class="col-md-5 text-end">
                     <button class="btn btn-danger" onClick="deleteProject()">Projekt törlése</button>
@@ -151,13 +155,14 @@
                         <div class="card-body column text-center" id="1">
 
 
-                           
+
 
                         </div>
 
-                        <div class="btn btn-success mt-4"  data-bs-toggle="modal" data-bs-target="#taskCreate">Add Task</div>
+                        <div class="btn btn-success mt-4" data-bs-toggle="modal" data-bs-target="#taskCreate">Add Task
+                        </div>
 
-                        
+
                     </div>
 
                 </div>
@@ -232,42 +237,44 @@
 
 
 
- <div class="modal fade modal-xl" id="addMemberToProject" tabindex="-1" aria-labelledby="addMemberToProject" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="addMemberToProject">Felhasználó(k) hozzáadás</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade modal-xl" id="addMemberToProject" tabindex="-1" aria-labelledby="addMemberToProject"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addMemberToProject">Felhasználó(k) hozzáadás</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-          <form id="addMemberToProjectForm">
+                    <form id="addMemberToProjectForm">
 
 
-            <div class="mb-3">
-              <label for="searchUserToAddProject" class="form-label">Keresés</label>
-              <input type="text" class="form-control" id="searchUserToAddProject" name="email" aria-describedby="searchUserToAddProject">
+                        <div class="mb-3">
+                            <label for="searchUserToAddProject" class="form-label">Keresés</label>
+                            <input type="text" class="form-control" id="searchUserToAddProject" name="email"
+                                aria-describedby="searchUserToAddProject">
+                        </div>
+
+
+                        <div id="addUserField" class="dropdown mb-3">
+
+                        </div>
+
+
+                        <ul id="resultList" class="list-group">
+
+                        </ul>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
+                    <button type="submit" class="btn btn-success">Hozzáadás</button>
+                    </form>
+                </div>
             </div>
-           
-
-             <div id="addUserField" class="dropdown mb-3">
-
-             </div>
-
-
-             <ul id="resultList" class="list-group">
-
-             </ul>
-
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
-          <button type="submit" class="btn btn-success" >Hozzáadás</button>
-          </form>
-        </div>
-      </div>
     </div>
-  </div>
 
 
 
@@ -276,36 +283,37 @@
 
 
 
-  <div class="modal fade" id="taskCreate" tabindex="-1" aria-labelledby="taskCreate" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="taskCreate">Task Létrehozás</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
+    <div class="modal fade" id="taskCreate" tabindex="-1" aria-labelledby="taskCreate" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="taskCreate">Task Létrehozás</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-          <form id="taskCreateFrom">
-            <div class="mb-3">
-              <label for="taskTitleInput" class="form-label">Task Title</label>
-              <input type="text" class="form-control" id="taskTitle" name="email" aria-describedby="taskTitleInput" required>
+                    <form id="taskCreateFrom">
+                        <div class="mb-3">
+                            <label for="taskTitleInput" class="form-label">Task Title</label>
+                            <input type="text" class="form-control" id="taskTitle" name="email"
+                                aria-describedby="taskTitleInput" required>
+                        </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
+                    <button type="submit" class="btn btn-success" id="taskFIllOpen">Create Task</button>
+                    </form>
+                </div>
             </div>
-           
-
-
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
-          <button type="submit" class="btn btn-success" id="taskFIllOpen">Create Task</button>
-          </form>
-        </div>
-      </div>
     </div>
-  </div>
 
 
 
-  <div id="modal_task"></div>
+    <div id="modal_task"></div>
 
     <script src="./assets/js/projects/addUserToProjectController.js"></script>
     <script src="./assets/js/projects/getProjectByIdController.js"></script>

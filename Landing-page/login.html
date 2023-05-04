@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/login.css">
+  <title>P-project landing page</title>
+</head>
+
+<body>
+
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-6 loginField_bg">
+
+
+      </div>
+
+      <div class="loginField col-6 text-center">
+
+        <h1 class="brand">P-project</h1>
+        
+        <form action="" id="logForm">
+
+    
+          <label for="emailInput" class="form-label labelForInput">Email cím:</label>
+          <div class="form-floating inputField mb-3"> 
+            <input type="email" class="form-control " id="emailInput" name="email"  placeholder="name@example.com">
+            <label for="emailInput">valaki@gmail.com</label>
+          </div>
+
+          
+          <label for="passwordInput" class="form-label labelForInput">Jelszó:</label>
+          <div class="form-floating inputField mb-4"> 
+            <input type="password" class="form-control " id="passwordInput" name="password" placeholder="***************">
+            <label for="passwordInput">*********</label>
+          </div>
+
+          <div class="mb-4">
+            <a href="" >Elfelejtett jelszó</a>
+          </div>
+
+          <div class="mb-3">
+            <button class=" logButton" type="submit" id="logButton">Bejelentkezés</button>
+          </div>
+          
+          <div class="mb-3">
+            <button class=" regButton" id="regButton">Regisztrálok</button>
+          </div>
+
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    var regButton = document.getElementById('regButton');
+
+    
+    regButton.addEventListener("click", (e) => {
+
+     e.preventDefault();
+
+      window.location.href = './registration.html';
+
+
+    });
+
+
+  </script>
+
+  <script src="./assets/js/logScript.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -408,7 +408,15 @@ body.dark .sidebar li a:hover .text{
     transition: var(--tran-05);
 }
 
+.notification_amount{
 
+    position: absolute;
+    border-radius: 50%;
+    background-color: lightred;
+
+
+
+}
 
 
 

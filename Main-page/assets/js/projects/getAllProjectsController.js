@@ -1,9 +1,5 @@
 window.addEventListener("load", (event) => {
 
-
-
-
-
 const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
 var projects_field = document.getElementById('projects');
 
@@ -60,7 +56,6 @@ function imageChecker(image) {
 }
 
 
-
 const options = {
   method: "POST",
   headers: {
@@ -88,6 +83,7 @@ fetch(url, options)
         splittedDescription = project.description.split(' ').slice(0, 5).join(' ');
 
        
+       
         projects_field.innerHTML += `<div class="col-md-4 mb-2">
         <div class="project_card card">
             <div class="container">
@@ -114,8 +110,10 @@ fetch(url, options)
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <div class="collabs" id="collabs"></div>
-                        <p id="collabText" class="inline-flex"></p> 
+                        <div class="collabs" id="collabs${project.id}"></div>
+                        <p id="collabText${project.id}" class="inline-flex"></p>
+                        
+                       
                     </div>
                 </div>
                 <div class="row mt-3 mb-3">
@@ -129,11 +127,11 @@ fetch(url, options)
             </div>
         </div>
     </div>`;
-    getProjectusers(project.id)
+    
+    getProjectusers(project.id);
     projectNumber++;
-
-
-    });
+    
+  });
   })
   .catch(error => {
     console.error(error);
@@ -147,13 +145,17 @@ fetch(url, options)
 
 
 function getProjectusers(id) {
+
+  console.log(id);
   
+  var collabs = document.getElementById('collabs' + id);
+  var collabText = document.getElementById('collabText' + id);
+
+
+  console.table(collabs, collabText);
 
 const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
 
-var collabs = document.getElementById('collabs');
-
-var collabText = document.getElementById('collabText');
 
 
 const data = {
@@ -185,25 +187,18 @@ fetch(url, options)
 
     const users = data.Result;
 
+ 
+      users.forEach(user => {       
+        collabs.innerHTML += `
+                       <span class="tt" data-bs-placement="bottom" title="${user.first_name + ' ' + user.last_name + ' ' + user.name}">
+                         <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+                       </span>
+                `;
 
-    users.forEach(user => {
-     
+                console.log(user);
 
-
-
-       
-           collabs.innerHTML += `
-                          <span class="tt" data-bs-placement="bottom" title="${user.first_name + ' ' + user.last_name + ' ' + user.name}">
-                            <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
-                          </span>
-                   `;
-  
-
-           collabText.innerText += `${user.first_name + ' ' + user.last_name},`       
-
-
-    });
-
+        collabText.innerText += `${user.first_name + ' ' + user.last_name},`       
+      });
 
   })
 

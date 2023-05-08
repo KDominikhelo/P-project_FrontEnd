@@ -146,7 +146,7 @@ fetch(url, {
             task.deadline = '';
         }
 
-        modal_task.innerHTML = `<div class="modal fade" id="${task.id}" tabindex="-1" aria-labelledby="${task.id}" aria-hidden="true">
+        modal_task.innerHTML = `<div class="modal fade" id="modal${task.id}" tabindex="-1" aria-labelledby="modal${task.id}" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
@@ -185,18 +185,25 @@ fetch(url, {
                                 ${commentShow(task.id)}
                                 
                                 </ul>
-                                <input type="text" class="form-control dark-input" id="commentInput" placeholder="Comment">
-                                <button class="btn btn-primary" onClick="createCommentandGetAllComments(${task.id})">Elküld</button>
-                                
+
+                                <div class="row">
+                                    <div class="col-10">
+                                        <input type="text" class="form-control dark-input" id="commentInput" placeholder="Comment">
+                                    </div>
+                                    <div class="col-2">
+                                        <button class="btn btn-primary" onClick="createCommentandGetAllComments(${task.id})">Elküld</button>
+                                    </div>
+                                </div>
                 
                                 <div id="mentionList">
 
-                                  </div>
+                                </div>
 
                             </div>
-                         
+             
                             <button class="btn btn-danger mt-5" onClick="deleteTask(${task.id})">Task törlése</button>    
-                            <button class="btn btn-success mt-5" onClick="taskszerkesztes(${task.id})">Task Szerkesztése</button>    
+                            <button class="btn btn-success mt-5" onClick="taskszerkesztes(${task.id})">Task Szerkesztése</button>
+
                         </div>
                         <div class="col md-4 text-center">
     
@@ -206,18 +213,47 @@ fetch(url, {
                                 <button type="button" class="list-group-item list-group-item-action">Ellenőrzi: ${task.reviewerName} <br> ${task.reviewerRole}</button>
                                 <button type="button" class="list-group-item list-group-item-action">Határidő: ${task.deadline}</button>
                             </div>
+
+
+
+                             
                         </div>
+
+                        ${milestoneChecker(task.id)}
+
+                        <div id="milestones"></div>
+
+                    
+                        <div id="addMilestone"></div> 
+
                     </div>
                 </div>
             </div>
         </div>
     </div>`;
 
-    var myTaskModal = new bootstrap.Modal(`#${task.id}`);
+var myTaskModal = new bootstrap.Modal(`#modal${task.id}`);
 
-    myTaskModal.show();
+myTaskModal.show();
 
 
+addComment(); 
+
+    })
+
+ 
+})
+
+.catch(e => console.log("error::", e));
+
+
+
+    
+}
+
+
+function addComment() {
+    
 var commentInput = document.getElementById('commentInput');
 var mentionList = document.getElementById('mentionList');
 
@@ -288,15 +324,249 @@ commentInput.addEventListener('input', () => {
 
 
 })
-        
+}
+
+
+function milestoneChecker(taskId) {
+
+    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
+    const requestData = {
+        function: "getTaskMilestone",
+        id: parseInt(taskId)
+    };
+    
+
+   
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
     })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+        var milestone = data.milestone;
+        var milestones = document.getElementById("milestones");
+    
+        if (milestone.length == 0) {
 
- 
-})
+            milestones.innerHTML += `<button class="btn btn-warning mt-5" onClick="addMilestone_field(${taskId})">Mérföldkő hozzáadása</button>`;
 
-.catch(e => console.log("error::", e));
+        }
+        else{
+
+            milestone.forEach(milestone_single => {
+    
+                milestones.innerHTML += `<ul class="list-group"><li class="list-group-item mt-2"> Mérföldkő: ${milestone_single.title}  Aktív   <button class="btn btn-danger" onClick="deleteMilestone(${taskId})"> Mérföldkő törlése</button>   </li></ul>`;
+        
+            });
+
+        }
+       
+    
+    
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    
+}
 
 
+function deleteMilestone(taskId) {
+    
+
+    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
+    const requestData = {
+        function: "deleteMilestone",
+        task: parseInt(taskId),
+    };
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+    
+       alert(data.message);
+    
+    
+    
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+
+
+
+
+}
+
+
+
+function addMilestone(taskId) {
+
+
+
+    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
+    const requestData = {
+        function: "addMilestone",
+        task: parseInt(taskId),
+        milestone: parseInt(selectMenu)
+    };
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+    
+       alert(data.message);
+    
+    
+    
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+
+    
+}
+
+
+
+function addMilestone_field(taskId) {
+
+    var addMilestone_field = document.getElementById("addMilestone");
+
+    var select = `
+        <div class="row">  <div class="col-10"> <select class="form-select mt-2" aria-label="Default select example" id="addMilestone_select"></select> </div> <div class="col-2"> <button class="btn btn-success mt-2" onClick="addMilestone(${taskId})">Hozzáad</button> </div> </div>`
+        
+    addMilestone_field.innerHTML += select;                
+    
+
+    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
+    const requestData = {
+        function: "getTaskByProjectId",
+        id: projectData.id
+    };
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+    
+       
+        var tasks = data.Result;
+
+        document.getElementById("addMilestone_select").innerHTML = "";
+        
+        tasks.forEach(task => {
+    
+            var task_content = 'Ennek a feladatnak még nincs leírása...';
+
+            
+          
+            document.getElementById("addMilestone_select").innerHTML += `<option value="${task.id}">${task.title} </option>`;
+      
+    
+        });
+    
+    
+    
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
+    
+}
+
+
+
+function addMilestone(taskId) {
+
+    var selectMenu = document.getElementById("addMilestone_select").value;
+
+
+    const url = 'http://p-project.hu/Backend/Controller/TaskController.php';
+
+    const requestData = {
+        function: "addMilestone",
+        task: parseInt(taskId),
+        milestone: parseInt(selectMenu)
+    };
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+    
+    
+       alert(data.message);
+    
+    
+    
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
     
 }
@@ -416,8 +686,6 @@ function commentShow(taskId) {
      
                 commentField.innerHTML += `<li class="list-group-item rewiever" >${comment_s.first_name + " " + comment_s.last_name + " | " + comment_s.name+ ' : ' + comment_s.content + ' ' + comment_s.created_at}  <button class="btn btn-primary text-end">O</button> <button class="btn btn-danger text-end" onClick="deleteComment(${comment_s.id},${taskId})">X</button> </li>`;
           
-
-                console.log(comment_s.id);
     
             });
         

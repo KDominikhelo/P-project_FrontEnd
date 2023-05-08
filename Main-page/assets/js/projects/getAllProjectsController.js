@@ -55,6 +55,7 @@ function imageChecker(image) {
 
 }
 
+console.log(data);
 
 const options = {
   method: "POST",
@@ -72,14 +73,16 @@ fetch(url, options)
   })
   .then(data => {
 
+
+
     const projects = data.Result;
 
     var projectNumber = 1;
 
 
-    projects.forEach(project => {
+    projects.forEach(p => {
      
-
+        let project = p;
         splittedDescription = project.description.split(' ').slice(0, 5).join(' ');
 
        
@@ -146,22 +149,22 @@ fetch(url, options)
 
 function getProjectusers(id) {
 
-  console.log(id);
+
   
-  var collabs = document.getElementById('collabs' + id);
-  var collabText = document.getElementById('collabText' + id);
+ // var collabs = document.getElementById('collabs' + id);
+ // var collabText = document.getElementById('collabText' + id);
 
 
-  console.table(collabs, collabText);
+  //console.table(collabs, collabText);
 
-const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
+  const url = "http://p-project.hu/Backend/Controller/ProjectController.php";
 
 
 
-const data = {
-  function: "getUserByProjectId",
-  id: id,
-};
+  const data = {
+    function: "getUserByProjectId",
+    id: id,
+  };
 
 const options = {
   method: "POST",
@@ -172,7 +175,8 @@ const options = {
 };
 
 
-fetch(url, options)
+async function fetchAsync() {
+  await fetch(url, options)
 
   .then(response => {
 
@@ -188,14 +192,22 @@ fetch(url, options)
     const users = data.Result;
 
  
-      users.forEach(user => {       
+    var collabs = document.getElementById('collabs' + id);
+    var collabText = document.getElementById('collabText' + id);
+
+      users.forEach(u => { 
+        
+
+        
+
+        let user = u;
         collabs.innerHTML += `
                        <span class="tt" data-bs-placement="bottom" title="${user.first_name + ' ' + user.last_name + ' ' + user.name}">
                          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
                        </span>
                 `;
 
-                console.log(user);
+                //console.log(user);
 
         collabText.innerText += `${user.first_name + ' ' + user.last_name},`       
       });
@@ -206,6 +218,10 @@ fetch(url, options)
     console.error(error);
   });
 
+}
+
+
+fetchAsync();
 
 
 

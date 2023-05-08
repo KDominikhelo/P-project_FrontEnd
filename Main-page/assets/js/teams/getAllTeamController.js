@@ -100,7 +100,6 @@ window.addEventListener("load", (event) => {
                         </div>
                         <div class="col-12 text-center mt-4">
                             <p class="project_owner_name">${project.name}</p>
-                            <p>tagok száma</p>
                         </div>
                     </div>
                 </div>
@@ -115,11 +114,12 @@ window.addEventListener("load", (event) => {
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="collabs">
-                            <ul>
-                                <li><img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
-                                        alt="">
-                                    <p>@02-user és további 2 ember társaságában.</p>
-                                </li>
+
+                        Csapat tagjai:
+
+                            <ul id="teamMemberField${project.id}">
+
+                          
                             </ul>
 
                         </div>
@@ -129,7 +129,7 @@ window.addEventListener("load", (event) => {
         </div>
         </div>`;
       
-
+        getAllteamMember(project.id);
     
     
         });
@@ -142,11 +142,79 @@ window.addEventListener("load", (event) => {
     });
 
 
-    function editTeam(teamId,teamName) {
+function getAllteamMember(teamId){
+
+
+    fetch("http://p-project.hu/Backend/Controller/TeamController.php",{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          function: "getTeamMembers",
+          id: teamId,
+        })
+    }).then(data=>{
+        return data.json();
+    }).then(data=>{
+      
+      
+      var teamMembers = data.Result;
+
+
+      if (teamMembers.length == 0) {
+
+        document.getElementById(`teamMemberField${teamId}`).innerHTML = `<p>Ehhez a csapathoz jelenleg egy felhasználó sincs hozzárendelve!</p>`
+        
+      }
+
+      else{
+
+        teamMembers.forEach(p => {
+     
+          let teamMember = p;
+         
+          document.getElementById(`teamMemberField${teamId}`).innerHTML += `<span class="tt" data-bs-placement="bottom" title="${teamMember.first_name + ' ' + teamMember.last_name + ' ' + teamMember.roleName}">
+          <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="">
+        </span>`;
+      
+      
+    });
+
+      }
+
+
+      
+
+
+    }).catch(err=>{
+        console.log(err);
+    })
+   
+  
+    
+
+
+}
+
+function editTeam(teamId,teamName) {
         
       localStorage.setItem('teammIdAndName', teamId + ' ' + teamName)
 
         window.location.href = './editTeam.html';
 
 
+    }
+
+
+function inviteUserToTeam(teamId) {
+
+localStorage.setItem("teamId", teamId);  
+
+var myTaskModal = new bootstrap.Modal(`#addMemberToTeam`);
+
+myTaskModal.show();
+
+      
     }

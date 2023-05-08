@@ -366,7 +366,7 @@ function milestoneChecker(taskId) {
 
             milestone.forEach(milestone_single => {
     
-                milestones.innerHTML += `<ul class="list-group"><li class="list-group-item mt-2"> Mérföldkő: ${milestone_single.title}  Aktív   <button class="btn btn-danger" onClick="deleteMilestone(${taskId})"> Mérföldkő törlése</button>   </li></ul>`;
+                milestones.innerHTML += `<ul class="list-group"><li class="list-group-item mt-2"> Mérföldkő: ${milestone_single.title}  Aktív    </li></ul>  <button class="btn btn-danger" onClick="deleteMilestone(${taskId})"> Mérföldkő törlése</button> `;
         
             });
 

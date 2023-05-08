@@ -122,26 +122,7 @@
 
         <div class="container">
             <div class="row ">
-                <div class="col-lg-4 position-absolute top-50 start-50 translate-middle">
-                    <div class="card ">
-                        <header>
-                            <time datetime="2018-05-15T19:00"></time>
-                            <div class="logo">
-                                <span>
-
-                                </span><img src="../Landing-page/assets/img/image-2.svg" alt="" width="100%"
-                                    height="100%" class="image-responsive bx-border-radius position-relative">
-
-                            </div>
-                            <div class="sponsor"></div>
-                        </header>
-                        <div class="announcement">
-                            <h3 id="userNameField_profile"></h3>
-                            <p id="emailField_profile"></p>
-                            <p class="italic" id="phoneField_profile"></p>
-                        </div>
-                    </div>
-                </div>
+                <div id="profileCard"></div>
             </div>
         </div>
 
@@ -150,9 +131,55 @@
 
 
 
+    
+    <div class="modal fade" id="updateProfile" tabindex="-1" aria-labelledby="updateProfile" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="updateProfileTitle">Profile megváltoztatás</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form id="updateProfileForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                          <label for="taskTitleInput" class="form-label">Profilkép</label>
+                          <input type="file" class="form-control" id="updateProfilPic" name="profilPic"
+                            aria-describedby="taskTitleInput">
+                        </div>
+                        <div class="mb-3">
+                          <label for="firstnameInput" class="form-label">Vezetéknév</label>
+                          <input type="text" class="form-control" id="updateFirstname" name="firstname" aria-describedby="firstnameInput">
+                        </div>
+                        <div class="mb-3">
+                          <label for="lastnameInput" class="form-label">Keresztnév</label>
+                          <input type="text" class="form-control" id="updateLastname" name="lastname" aria-describedby="lastnameInput">
+                        </div>
+                        <div class="mb-3">
+                          <label for="emailInput" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="updateEmail" name="email" aria-describedby="emailInput">
+                        </div>
+                        <div class="mb-3">
+                          <label for="phoneInput" class="form-label">Telefon</label>
+                          <input type="phone" class="form-control" id="updatePhone" name="phone" aria-describedby="phoneInput">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vissza</button>
+                          <button type="submit" class="btn btn-success" >Felhasználó megváltoztatása</button>
+                        </div>
+                      </form>
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <script src="../Landing-page/assets/js/logoutScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./assets/js/userController.js"></script>
+    <script src="./assets/js/profile/updateProfil.js"></script>
     <script src="./assets/js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"

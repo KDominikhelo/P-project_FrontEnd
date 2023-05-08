@@ -231,19 +231,6 @@ fetchAsync();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function openProjectById(id) {
     
     
